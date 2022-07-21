@@ -3,7 +3,7 @@ const cors = require("cors");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const app = express();
-const port = process.eventNames.PORT || 5000;
+const port = process.env.PORT || 5000;
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.s7xebih.mongodb.net/?retryWrites=true&w=majority`;
@@ -129,6 +129,7 @@ async function run() {
       res.send(result);
     });
   } finally {
+    // await client.close();
   }
 }
 run().catch(console.dir);
