@@ -59,6 +59,14 @@ async function run() {
     app.post("/wumpuses", verifyJWT, async (req, res) => {
       const wumpus = req.body;
       const result = await wumpusesCollection.insertOne(wumpus);
+      res.send(result);
+    });
+    app.delete("/wumpus/:id", verifyJWT, async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: ObjectId(id) };
+
+      const result = await wumpusesCollection.deleteOne(filter);
+      res.send(result);
     });
     app.get("/wumpus", verifyJWT, async (req, res) => {
       const u_email = req.query.u_email;
