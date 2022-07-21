@@ -135,6 +135,7 @@ async function run() {
 run().catch(console.dir);
 
 app.use(cors());
+app.options("*", cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
