@@ -43,19 +43,7 @@ async function run() {
       const wumpuses = await cursor.toArray();
       res.send(wumpuses);
     });
-    app.put("/wumpuses/:id", async (req, res) => {
-      const id = req.params.id;
-      const wumpus = req.body;
-      const query = { _id: ObjectId(id) };
-      const filter = { query: query };
-      // const options = { upsert: true };
-      const updateDoc = {
-        $set: wumpus,
-      };
-      const result = await wumpusesCollection.updateOne(filter, updateDoc);
-      // const token = jwt.sign({ email: email }, process.env.ACCESS_TOKEN_SECRET);
-      res.send({ result });
-    });
+
     app.post("/wumpuses", verifyJWT, async (req, res) => {
       const wumpus = req.body;
       const result = await wumpusesCollection.insertOne(wumpus);
@@ -113,6 +101,15 @@ async function run() {
       } else {
         res.status(403).send({ message: "Forbidden Access" });
       }
+    });
+    app.put("/wumpuses/:email", async (req, res) => {
+      const email = req.params.email;
+      const filter = { email: email };
+      const updateDoc = {
+        $set: { like: [email] },
+      };
+      const result = await wumpusesCollection.updateOne(filter, updateDoc);
+      res.send(result);
     });
     app.get("/admin/:email", async (req, res) => {
       const email = req.params.email;
