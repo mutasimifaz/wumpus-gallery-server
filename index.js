@@ -102,14 +102,12 @@ async function run() {
         res.status(403).send({ message: "Forbidden Access" });
       }
     });
-    app.put("/wumpuses/:email", async (req, res) => {
-      const email = req.params.email;
-      const filter = { email: email };
-      const updateDoc = {
-        $set: { like: [email] },
-      };
+    app.put("/wumpus/:id", async (req, res) => {
+      const wumpus = req.body;
+      const filter = { _id: ObjectId(req.params.id) };
+      const updateDoc = { $set: wumpus };
       const result = await wumpusesCollection.updateOne(filter, updateDoc);
-      res.send(result);
+      res.json(result);
     });
     app.get("/admin/:email", async (req, res) => {
       const email = req.params.email;
