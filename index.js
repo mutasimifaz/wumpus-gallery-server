@@ -1,8 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const jwt = require("jsonwebtoken");
-require("dotenv").config();
 const app = express();
+require("dotenv").config();
+
 const port = process.env.PORT || 5000;
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 
@@ -63,12 +64,13 @@ async function run() {
       const wumpus = await wumpusesCollection.find(query).toArray();
       res.send(wumpus);
     });
-    app.get("/wumpus/:id", async (req, res) => {
-      const id = req.params.id;
-      const query = { _id: ObjectId(id) };
-      const result = await wumpusesCollection.findOne(query);
-      res.send(result);
-    });
+    // app.get("/wumpus/:id", async (req, res) => {
+    //   const id = req.params.id;
+    //   const query = { _id: ObjectId(id) };
+    //   const result = await wumpusesCollection.findOne(query);
+    //   res.send(result);
+    // });
+
     app.put("/user/:email", async (req, res) => {
       const email = req.params.email;
       const user = req.body;
@@ -131,14 +133,18 @@ async function run() {
       const result = await usersCollection.findOne({ url: url });
       res.send(result);
     });
+    app.get("/wumpus/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: ObjectId(id) };
+      const result = await wumpusesCollection.findOne(query);
+      res.send(result);
+    });
   } finally {
     // await client.close();
   }
 }
 run().catch(console.dir);
-
-app.use("*", cors());
-// app.options("*", cors());
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => {
