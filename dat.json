@@ -9,5 +9,34 @@
     "u_email": "studentifaz@gmail.com",
     "u_name": "Mutasim Hussain"
   },
-  
+  {
+    "_id": ObjectId('62d69acd3c386f7223d24b7f'),
+    "name": "Eating",
+    "description": " Wumpus munching on a hamburger",
+    "lottie": "https://distok.top/stickers/755240383084232756/755244598799892490.json",
+    "apng": "https://i.ibb.co/YbkTGmj/hungry.png",
+    "gif": "http://res.cloudinary.com/ifazinary/image/upload/v1658231497/tosqnporg46nxacu5bba.gif",
+    "u_email": "studentifaz@gmail.com",
+    "u_name": "Mutasim Hussain"
+  },
+  {
+    "_id": ObjectId('62d69c1c3c386f7223d24b80'),
+    "name": "Okay",
+    "description": "Wumpus's helmet features an okay emote",
+    "lottie": "https://distok.top/stickers/755240383084232756/755244428305760266.json",
+    "apng": "https://i.ibb.co/pb8y1rN/755244428305760266.png",
+    "gif": "http://res.cloudinary.com/ifazinary/image/upload/v1658231800/dalvnzxgdmqvdpvewxia.gif",
+    "u_email": "studentifaz@gmail.com",
+    "u_name": "Mutasim Hussain"
+  },
+  {
+    "_id": ObjectId('62d69db63c386f7223d24b81'),
+    "name": "Laugh",
+    "description": "Wumpus crying with laughter",
+    "lottie": "https://distok.top/stickers/755240383084232756/755240728590024723.json",
+    "apng": "https://i.ibb.co/pb8y1rN/755244428305760266.png",
+    "gif": "http://res.cloudinary.com/ifazinary/image/upload/v1658232245/l8ryhtn0haczsmfn5ffl.gif",
+    "u_email": "studentifaz@gmail.com",
+    "u_name": "Mutasim Hussain"
+  }
 ]
